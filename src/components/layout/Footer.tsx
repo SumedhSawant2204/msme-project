@@ -1,9 +1,18 @@
+"use client";
+
 import Link from 'next/link';
 import { Leaf } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <motion.footer 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="border-t border-border bg-background"
+    >
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
@@ -59,6 +68,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

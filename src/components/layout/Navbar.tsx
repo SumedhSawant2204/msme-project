@@ -10,7 +10,12 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ type: "spring", stiffness: 100, damping: 20 }}
+      className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
@@ -27,16 +32,16 @@ export function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden md:block">
             <div className="flex items-center gap-6">
-              <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Home
               </Link>
-              <Link href="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Dashboard
               </Link>
-              <Link href="/apply" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/apply" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                 Apply for Loan
               </Link>
-              <Button href="/apply">Get Started</Button>
+              <Button href="/apply" className="transition-transform hover:scale-105 active:scale-95">Get Started</Button>
             </div>
           </div>
 
@@ -93,6 +98,6 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
